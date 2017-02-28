@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Echo Service
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<!--
+  ion-input benötigt ein name tag damit es ansprechbar ist. value ist eine public variable aus dem TypeScript
+  click kann auch ein Parameter übergeben werden -> sendEcho(echoMessage)
+
+  Um das Value Tag zu binden benötigt man {{echoMessage.value}}.
+  Im Text langt {{echoMessage}} um die Variable zu binden.
+
+  Ionic Forms Beschreibung: https://ionicframework.com/docs/v2/resources/forms/
+  Ionic Inputs Beschreibung: https://ionicframework.com/docs/v2/components/#inputs
+
+-->
+
+<ion-content padding>
+  <ion-item>
+    <ion-label color="primary">Send Echo Text:</ion-label>
+    <ion-input type="text" name="echoMessage" [(ngModel)]="echoMessage" placeholder="Echo Text" value="{{echoMessage.value}}"></ion-input>
+  </ion-item>
+  <button ion-button block color="dark" (click)="sendEcho()">Send echo Message</button>
+</ion-content>
