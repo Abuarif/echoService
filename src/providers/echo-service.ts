@@ -21,7 +21,7 @@ export class EchoService {
 
   getEcho(echo: string): Promise<string> {
   return  this.http
-    .post(this.echoUrl, JSON.stringify({echo: echo}), {headers: this.headers})
+    .post(this.echoUrl, JSON.stringify({echo: echo}), {headers: this.headers}) // use JSON.stringify({param1: value1, param2: value2, ...}) for more than one parameter
     .toPromise()
     .then(response => response.json().echo as string)
     .catch(this.handleError);

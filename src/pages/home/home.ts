@@ -21,7 +21,8 @@ export class HomePage {
   sendEcho() {
     console.log('sendEcho ->' + this.echoMessage)
     this.echoService.getEcho(this.echoMessage)
-        .then(resp => this.showEchoToast(resp));
+        .then(resp => this.showEchoToast(resp))
+        .catch(error => this.showErrorToast(error));
   }
 
   showEchoToast(message: string) {
@@ -32,5 +33,14 @@ export class HomePage {
     });
     toast.present();
  }
+
+ showErrorToast(error: any) {
+   console.log('showErrorToast ->' + error);
+   let toast = this.toastCtrl.create({
+     message: "Uuuups. Something went wrong!! " + error,
+     duration: 3000
+   });
+   toast.present();
+}
 
 }
